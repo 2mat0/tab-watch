@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tab Watch demo</title>
+<style>
+  :root { color-scheme: light; font-family: system-ui, sans-serif; color: #142438; background: #f4f6fa; }
+  body { margin: 0; }
+  main { max-width: 38rem; margin: 3rem auto; padding: 0 1rem; }
+  h1 { margin: 0 0 0.5rem; font-size: 2rem; }
+  p { max-width: 34rem; line-height: 1.55; }
+  #panel { width: min(100%, 24rem); height: 12rem; background: #207fbc; margin: 1.5rem 0; }
+  #panel.changed { background: #7138a1; }
+  button { font: inherit; color: white; background: #17476a; border: 0; border-radius: 0.4rem; padding: 0.65rem 1rem; cursor: pointer; }
+  button:focus-visible { outline: 3px solid #175f9c; outline-offset: 4px; }
+  output { display: block; margin-top: 0.75rem; min-height: 1.5em; }
+</style>
+<main>
+  <h1>Tab Watch demo</h1>
+  <p>Queue a change, switch to another tab, then return. The panel changes color once while this tab is hidden.</p>
+  <div id="panel" role="img" aria-label="Solid color comparison panel"></div>
+  <button id="queue" type="button">Queue one change</button>
+  <output id="feedback" aria-live="polite"></output>
+</main>
+<script>
+  const panel = document.querySelector("#panel");
+  const queue = document.querySelector("#queue");
+  const feedback = document.querySelector("#feedback");
+  let nextHideChangesPanel = false;
+
+  queue.addEventListener("click", () => {
+    nextHideChangesPanel = true;
+    feedback.textContent = "Last command recorded: queue one change.";
+  });
+
+  document.addEventListener("visibilitychange", () => {
+    if (document.visibilityState === "hidden" && nextHideChangesPanel) {
+      nextHideChangesPanel = false;
+      panel.classList.toggle("changed");
+    }
+  });
+</script>
+</html>

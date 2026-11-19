@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A fictional outdoor gear checkout for demonstrating Tab Watch.">
+  <title>Review your order | Tarnline Supply</title>
+  <link rel="stylesheet" href="checkout.css">
+  <script src="checkout.js" defer></script>
+</head>
+<body>
+  <header class="masthead">
+    <div class="frame masthead-inner">
+      <div class="wordmark">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span>Tarnline <span class="wordmark-secondary">Supply</span></span>
+      </div>
+      <span class="checkout-label">Checkout</span>
+    </div>
+  </header>
+
+  <main class="frame">
+    <div class="intro">
+      <div>
+        <ol class="steps" aria-label="Checkout progress">
+          <li>Cart</li>
+          <li>Delivery</li>
+          <li aria-current="step">Review</li>
+        </ol>
+        <h1>Review your order</h1>
+        <p>Check your delivery details before placing your order.</p>
+      </div>
+      <aside class="demo-controls" aria-label="Tab Watch demo controls">
+        <div class="demo-heading">
+          <span>Tab Watch demo</span>
+          <span class="simulation-label">Simulated checkout</span>
+        </div>
+        <div class="demo-actions">
+          <button id="queue-change" type="button">Queue delivery change</button>
+          <button id="reset-demo" type="button" class="quiet-button">Reset</button>
+        </div>
+        <p id="demo-status" role="status">Apply a one-time change on the next tab switch.</p>
+      </aside>
+    </div>
+
+    <div class="checkout-grid">
+      <div class="details">
+        <section class="card" aria-labelledby="delivery-heading">
+          <h2 id="delivery-heading">Delivery</h2>
+          <div id="destination" class="destination" data-method="home">
+            <div class="destination-symbol" aria-hidden="true"><span></span></div>
+            <div class="destination-details">
+              <p id="delivery-method" class="delivery-method">Home delivery</p>
+              <p id="delivery-recipient" class="delivery-recipient">Jamie Rivera</p>
+              <p id="delivery-address">12 Timberline Road</p>
+              <p id="delivery-city">Alderfield, OR</p>
+            </div>
+          </div>
+          <p class="delivery-estimate">Estimated arrival <strong>Tuesday–Thursday</strong></p>
+        </section>
+
+        <section class="card payment" aria-labelledby="payment-heading">
+          <h2 id="payment-heading">Payment</h2>
+          <div class="payment-method">
+            <span class="card-symbol" aria-hidden="true"></span>
+            <p>Sample card ending in <strong>2048</strong></p>
+          </div>
+        </section>
+      </div>
+
+      <section class="card order" aria-labelledby="order-heading">
+        <h2 id="order-heading">Order summary</h2>
+        <div class="product">
+          <img src="ridge-daypack.webp" alt="Forest-green hiking daypack" width="136" height="93">
+          <div>
+            <h3>Ridge 28 Daypack</h3>
+            <p>Forest green · Qty 1</p>
+          </div>
+          <span class="product-price">$129.00</span>
+        </div>
+        <dl class="totals">
+          <div><dt>Subtotal</dt><dd>$129.00</dd></div>
+          <div><dt>Delivery</dt><dd>Free</dd></div>
+          <div><dt>Estimated tax</dt><dd>$10.32</dd></div>
+          <div class="order-total"><dt>Total</dt><dd>$139.32</dd></div>
+        </dl>
+        <button id="place-order" type="button" class="place-order">Place order</button>
+        <p id="order-status" class="order-status" role="status" hidden></p>
+      </section>
+    </div>
+  </main>
+</body>
+</html>

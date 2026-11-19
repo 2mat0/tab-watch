@@ -1,0 +1,14 @@
+{
+  "manifest_version": 3,
+  "name": "Tab Watch",
+  "version": "1.0.0",
+  "description": "Warns when the visible viewport of a monitored tab changes while you are away.",
+  "minimum_chrome_version": "106",
+  "permissions": ["activeTab", "scripting"],
+  "background": {
+    "service_worker": "worker.js"
+  },
+  "action": {
+    "default_title": "Tab Watch · Click to monitor this webpage"
+  }
+}
